@@ -8,45 +8,34 @@ public class Main {
     public static void main(String[] args) {
         String a1 = " Hello jAVA class";
     // dem so ki tu trong chuoi
-        Bt2Functional demKiTu = new Bt2Functional() {
-            @Override
-            public int chuoi(String a) {
-                return a.length();
-            }
-        };
+        Bt2Functional demKiTu = a -> a.length();
         System.out.println("So ki tu trong chuoi= "+demKiTu.chuoi(a1));
 
     // tinh so tu trong chuoi
         //khi nao bd 1 tu? i la khoang trang, i+1 khong phai la khoang trang
-        Bt2Functional demTu = new Bt2Functional() {
-            @Override
-            public int chuoi(String a) {
-                int count = 0;
-                if (a.charAt(0) != ' '){
+        Bt2Functional demTu = a -> {
+            int count = 0;
+            if (a.charAt(0) != ' '){
+                count++;
+            }
+            for (int i=1; i<a.length(); i++){
+                if (a.charAt(i) == ' ' && a.charAt(i+1) != ' '){
                     count++;
                 }
-                for (int i=1; i<a.length(); i++){
-                    if (a.charAt(i) == ' ' && a.charAt(i+1) != ' '){
-                        count++;
-                    }
-                }
-                return count;
             }
+            return count;
         };
         System.out.println("So tu = "+ demTu.chuoi(a1));
 
         //dem so tu 'a' , 'A' trong chuoi.
 
         // dem so ki tu trong chuoi chi xuat hien 1 lan
-        Bt2Functional demKiTuSD = new Bt2Functional() {
-            @Override
-            public int chuoi(String a) {
-                Set<Character> characters = new HashSet<>();
-                for (int i = 0; i <a.length(); i++){
-                    characters.add(a.charAt(i));
-                }
-                return characters.size();
+        Bt2Functional demKiTuSD = a -> {
+            Set<Character> characters = new HashSet<>();
+            for (int i = 0; i <a.length(); i++){
+                characters.add(a.charAt(i));
             }
+            return characters.size();
         };
         System.out.println("So ki tu da dung = "+ demKiTuSD.chuoi(a1));
 
