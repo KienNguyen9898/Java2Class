@@ -28,6 +28,20 @@ public class Main {
         System.out.println("So tu = "+ demTu.chuoi(a1));
 
         //dem so tu 'a' , 'A' trong chuoi.
+        Bt2Functional demTuA = a -> {
+            int count = 0;
+            if (a.charAt(0) == 'a' || a.charAt(0)=='A'){
+                count++;
+            }
+            for (int i=1; i<a.length();i++){
+                if (a.charAt(i) == 'a' || a.charAt(i) == 'A'){
+                    count++;
+                }
+            }
+            return count;
+
+        };
+        System.out.println("So ki tu 'a', 'A'= "+demTuA.chuoi(a1));
 
         // dem so ki tu trong chuoi chi xuat hien 1 lan
         Bt2Functional demKiTuSD = a -> {
