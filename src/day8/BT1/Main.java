@@ -2,7 +2,6 @@
 
 import java.util.*;
 
-import static java.lang.System.in;
 
 public class Main {
     public static void mainMenu() {
@@ -14,16 +13,25 @@ public class Main {
         System.out.println("5. Thoat");
 
     }
-    Map<Sodienthoai, List<NguoiDung>> listContact = new HashMap<>();
+    static Map<Sodienthoai, List<NguoiDung>> listContact = new HashMap<>();
     private static void option1(Scanner in){
         // b1: nhap sdt
         System.out.print("\t Nhap sdt: ");
         String sdt = in.nextLine();
 
         //b2 kiemr tra sdt co chua
-        if ()
+        if (listContact.containsKey(sdt)){
+            System.out.println("Da ton tai lien he");
+            return;
+        }
+        System.out.print("\tNhap ten lien he");
+        String name = in.nextLine();
 
         //b3: neu chua co thi nhap ten , co sdt roi-> da luu lien he
+        listContact(sdt, name);
+
+        //b4 thoat
+        System.out.println("Luu thanh cong");
 
     }
 
@@ -49,6 +57,7 @@ public class Main {
             }
             switch (option){
                 case 1:
+                    option1(in);
                     break;
                 case 2:
                     break;
@@ -56,7 +65,9 @@ public class Main {
                     break;
                 case 4:
                     //in ra danh ba -> duyet map
-                    for ()
+                    for (Sodienthoai sdt: listContact.keySet()){
+                        System.out.printf("\t%s - %s\n", listContact.get(sdt));
+                    }
                     break;
             }
         }
@@ -64,5 +75,4 @@ public class Main {
         in.close();
 
     }
-}
-*/
+}*/
